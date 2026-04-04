@@ -1,6 +1,7 @@
 import Experice from './Experience/Experice';
 import FastMarque from './FastMarque';
 import Hero from './Hero';
+import MoreWorks from './MoreWorks/MoreWorks';
 import Portfolio from './Portfolio/Portfolio';
 
 export default function Home() {
@@ -13,6 +14,7 @@ export default function Home() {
           <Experice />
           <FastMarque />
           <Portfolio />
+          <MoreWorks />
         </div>
       </div>
     </>
