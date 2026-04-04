@@ -31,7 +31,7 @@ export default function Home() {
     >
       <div className="w-full px-6 sm:px-8 lg:px-12">
         {/* Hero Section */}
-        <motion.section className="mb-16" variants={itemVariants}>
+        <motion.section id="home" className="mb-16" variants={itemVariants}>
           <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-sky-600 via-pink-600 to-sky-600 bg-clip-text text-transparent">
             Welcome to Floka
           </h1>
@@ -50,7 +50,7 @@ export default function Home() {
         </motion.section>
 
         {/* Three.js Canvas Section */}
-        <motion.section className="mb-16" variants={itemVariants}>
+        <motion.section id="pages" className="mb-16" variants={itemVariants}>
           <h2 className="text-3xl font-bold mb-8 text-center">
             3D Visualization
           </h2>
@@ -61,7 +61,7 @@ export default function Home() {
         </motion.section>
 
         {/* Features Section */}
-        <motion.section className="mb-16" variants={itemVariants}>
+        <motion.section id="portfolio" className="mb-16" variants={itemVariants}>
           <h2 className="text-3xl font-bold mb-12 text-center">
             Key Features
           </h2>
@@ -117,6 +117,7 @@ export default function Home() {
 
         {/* CTA Section */}
         <motion.section
+          id="blog"
           className="py-12 px-8 rounded-xl bg-gradient-to-r from-sky-600 to-pink-600 text-white text-center"
           variants={itemVariants}
         >
