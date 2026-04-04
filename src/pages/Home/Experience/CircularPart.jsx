@@ -3,12 +3,12 @@
 const CircularPart = ({ text, logo }) => {
     return (
 
-        <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-start lg:items-center">
+        <div className="flex flex-col lg:flex-row gap-8 sm:gap-10 lg:gap-24 items-center lg:items-center max-w-7xl mx-auto px-0">
 
             {/* Left Column - Logo with Circling Text */}
-            <div className="flex flex-col items-start gap-8 flex-shrink-0">
+            <div className="flex flex-col items-center lg:items-start gap-4 sm:gap-6 flex-shrink-0 w-full lg:w-auto">
                 {/* Circling Logo */}
-                <div className="relative w-32 h-32 flex items-center justify-center">
+                <div className="relative w-20 sm:w-24 lg:w-32 h-20 sm:h-24 lg:h-32 flex items-center justify-center">
                     {/* SVG with circling text */}
                     <svg
                         viewBox="0 0 300 300"
@@ -42,9 +42,9 @@ const CircularPart = ({ text, logo }) => {
                     </svg>
 
                     {/* Center Logo */}
-                    <div className="relative z-10 flex items-center justify-center w-16 h-16 rounded-full">
+                    <div className="relative z-10 flex items-center justify-center w-12 sm:w-14 lg:w-16 h-12 sm:h-14 lg:h-16 rounded-full">
                         <img
-                            className="w-10 h-10 object-contain"
+                            className="w-7 sm:w-8 lg:w-10 h-7 sm:h-8 lg:h-10 object-contain"
                             src={logo}
                             alt="Logo"
                         />
@@ -68,14 +68,14 @@ const CircularPart = ({ text, logo }) => {
                 </div>
 
                 {/* Descriptive Text */}
-                <p className="text-sm text-gray-500 max-w-xs font-inter">
+                <p className="text-xs sm:text-sm text-gray-500 max-w-xs font-inter text-center">
                     We design every project with long-term success in mind.
                 </p>
             </div>
 
             {/* Right Column - Large Heading */}
-            <div className="flex-1">
-                <h2 className="text-4xl sm:text-5xl lg:text-6xl font-funnel font-bold leading-tight text-gray-900">
+            <div className="flex-1 w-full">
+                <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-funnel font-bold leading-tight text-gray-900 text-center lg:text-left">
                     Our approach is straightforward—prioritizing functionality, speed, and clarity for solutions.
                 </h2>
             </div>

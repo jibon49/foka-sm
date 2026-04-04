@@ -34,38 +34,38 @@ export default function StatsCard() {
   }, []);
 
   return (
-    <div className="bg-white rounded-3xl w-84  p-6 sm:p-8 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+    <div className="bg-white rounded-3xl w-full h-full p-6 sm:p-8 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
       {/* Big Number */}
-      <div className="mb-4">
+      <div className="mb-3 sm:mb-4">
         <h3
           ref={counterRef}
-          className="text-6xl sm:text-7xl lg:text-8xl font-bold text-gray-900"
+          className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900"
         >
-            0+ <span className="text-4xl text-gray-500">+</span>
+            0+ <span className="text-2xl sm:text-3xl lg:text-4xl text-gray-500">+</span>
         </h3>
       </div>
 
       {/* Subtitle */}
-      <p className="text-sm text-gray-500 font-inter mb-6">Years of experience</p>
+      <p className="text-xs sm:text-sm text-gray-500 font-inter mb-4 sm:mb-6">Years of experience</p>
 
       {/* Divider */}
-      <div className="h-px bg-gray-300 mb-6"></div>
+      <div className="h-px bg-gray-300 mb-4 sm:mb-6"></div>
 
       {/* Description */}
-      <p className=" text-gray-600 font-inter mb-16 leading-relaxed">
+      <p className="text-xs sm:text-sm text-gray-600 font-inter mb-10 sm:mb-16 leading-relaxed">
         Explore how we transform ideas into extraordinary digital experiences.
       </p>
 
       {/* Avatar Row */}
-      <div className="flex items-center mb-6">
+      <div className="flex items-center mb-4 sm:mb-6">
         <div className="flex -space-x-2">
           {[1, 2, 3, 4].map((i) => (
             <div
               key={i}
-              className="w-10 h-10 rounded-full bg-gradient-to-br from-sky-400 to-pink-400 border-2 border-white overflow-hidden"
+              className="w-8 sm:w-9 lg:w-10 h-8 sm:h-9 lg:h-10 rounded-full bg-gradient-to-br from-sky-400 to-pink-400 border-2 border-white overflow-hidden"
             >
               <img
-                src={`https://i.pravatar.cc/32?img=${i}`}
+                src={`https://i.pravatar.cc/40?img=${i}`}
                 alt={`User ${i}`}
                 className="w-full h-full object-cover"
               />
@@ -75,7 +75,7 @@ export default function StatsCard() {
       </div>
 
       {/* Footer Text */}
-      <div className="text-lg text-gray-500 font-inter">
+      <div className="text-sm sm:text-base lg:text-lg text-gray-500 font-inter">
         <span ref={usersRef} className="font-semibold text-gray-700">
           0+
         </span>{' '}

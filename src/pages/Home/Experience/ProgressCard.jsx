@@ -16,45 +16,65 @@ export default function ProgressCard() {
   ];
 
   useEffect(() => {
-    // Animate items entrance
-    items.current.forEach((item, index) => {
-      gsap.fromTo(
-        item,
-        { opacity: 0, x: -20 },
-        {
-          opacity: 1,
-          x: 0,
-          duration: 0.6,
-          delay: index * 0.1,
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: cardRef.current,
-            start: 'top center',
-            toggleActions: 'play none none none',
-          },
-        }
-      );
-    });
+    const animateProgress = () => {
+      if (!cardRef.current) return;
 
-    // Animate progress bars
-    bars.current.forEach((bar, index) => {
-      gsap.fromTo(
-        bar,
-        { width: '0%' },
-        {
-          width: `${progressData[index].value}%`,
-          duration: 1.5,
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: cardRef.current,
-            start: 'top center',
-            toggleActions: 'play none none none',
-          },
-        }
-      );
-    });
+      // Wait for next frame to ensure DOM is fully rendered
+      requestAnimationFrame(() => {
+        // Animate items entrance
+        items.current.forEach((item, index) => {
+          if (item) {
+            gsap.fromTo(
+              item,
+              { opacity: 0, x: -20 },
+              {
+                opacity: 1,
+                x: 0,
+                duration: 0.6,
+                delay: index * 0.1,
+                ease: 'power2.out',
+                scrollTrigger: {
+                  trigger: cardRef.current,
+                  start: 'top 80%',
+                  toggleActions: 'play none restart none',
+                  once: true,
+                },
+              }
+            );
+          }
+        });
+
+        // Animate progress bars
+        bars.current.forEach((bar, index) => {
+          if (bar) {
+            gsap.fromTo(
+              bar,
+              { width: '0%' },
+              {
+                width: `${progressData[index].value}%`,
+                duration: 1.5,
+                ease: 'power2.out',
+                scrollTrigger: {
+                  trigger: cardRef.current,
+                  start: 'top 80%',
+                  toggleActions: 'play none restart none',
+                  once: true,
+                },
+              }
+            );
+          }
+        });
+
+        // Refresh ScrollTrigger
+        ScrollTrigger.refresh();
+      });
+    };
+
+    // Delay to ensure component is fully mounted
+    const timer = setTimeout(animateProgress, 100);
 
     return () => {
+      clearTimeout(timer);
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
   }, []);
