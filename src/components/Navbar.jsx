@@ -26,7 +26,7 @@ export default function Navbar() {
     };
 
     return (
-        <nav className="w-full sticky top-0 z-50 bg-white border-b border-gray-200 border-t-4 border-t-sky-500">
+        <nav className="w-full font-inter sticky top-0 z-50 bg-white border-b border-gray-200 border-t-4 border-t-sky-500">
             <div className="w-full flex items-center justify-between h-20 px-6 sm:px-8 lg:px-12">
                 {/* Logo */}
                 <Link

@@ -113,7 +113,7 @@ export default function Hero() {
                     {/* Main Heading */}
                     <h1
                         ref={headingRef}
-                        className="text-7xl sm:text-8xl lg:text-9xl font-black text-white leading-tight mb-8"
+                        className="text-7xl font-funnel sm:text-8xl lg:text-9xl font-black text-white leading-tight mb-8"
                         style={{
                             fontSize: 'clamp(80px, 12vw, 180px)',
                         }}
@@ -124,7 +124,7 @@ export default function Hero() {
                         ref={studioRef}
                         className="relative mb-4"
                     >
-                        <h2 className="text-6xl sm:text-6xl lg:text-8xl font-bold text-white ml-24 lg:ml-56 opacity-10 absolute -left-2">
+                        <h2 className="text-6xl font-funnel sm:text-6xl lg:text-8xl font-bold text-white ml-24 lg:ml-56 opacity-10 absolute -left-2">
                             Studio
                         </h2>
                     </div>
