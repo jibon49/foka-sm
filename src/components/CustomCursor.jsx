@@ -8,6 +8,22 @@ export default function CustomCursor() {
   const mouseY = useRef(0);
 
   useEffect(() => {
+    // Helper function to safely check if element is interactive
+    const isInteractive = (el) => {
+      if (!el || !(el instanceof Element)) return false;
+      try {
+        return (
+          el.tagName === 'A' ||
+          el.tagName === 'BUTTON' ||
+          el.classList.contains('interactive') ||
+          !!el.closest('a') ||
+          !!el.closest('button')
+        );
+      } catch (e) {
+        return false;
+      }
+    };
+
     // Handle mouse move
     const handleMouseMove = (e) => {
       mouseX.current = e.clientX;
@@ -27,22 +43,6 @@ export default function CustomCursor() {
         ease: 'power3.out',
         overwrite: 'auto',
       });
-    };
-
-    // Check if element is interactive
-    const isInteractive = (el) => {
-      if (!el || !(el instanceof Element)) return false;
-      try {
-        return (
-          el.tagName === 'A' ||
-          el.tagName === 'BUTTON' ||
-          el.classList.contains('interactive') ||
-          !!el.closest('a') ||
-          !!el.closest('button')
-        );
-      } catch (e) {
-        return false;
-      }
     };
 
     // Handle mouse enter (hover over interactive elements)
