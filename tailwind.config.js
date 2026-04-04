@@ -10,6 +10,9 @@ export default {
         inter: ['Inter', 'sans-serif'],
         funnel: ['Funnel Display', 'serif'],
       },
+      zIndex: {
+        9999: '9999',
+      },
     },
   },
 };
