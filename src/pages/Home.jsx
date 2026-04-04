@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import Hero from '../components/Hero';
 import ThreeCanvas from '../components/ThreeCanvas';
 
 export default function Home() {
@@ -23,15 +24,20 @@ export default function Home() {
   };
 
   return (
-    <motion.div
-      className="min-h-screen pt-20 pb-12"
-      variants={containerVariants}
-      initial="hidden"
-      animate="visible"
-    >
-      <div className="w-full px-6 sm:px-8 lg:px-12">
-        {/* Hero Section */}
-        <motion.section id="home" className="mb-16" variants={itemVariants}>
+    <>
+      {/* Hero Section */}
+      <Hero />
+
+      {/* Rest of Content */}
+      <motion.div
+        className="min-h-screen pb-12"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        <div className="w-full px-6 sm:px-8 lg:px-12">
+          {/* Welcome Section */}
+          <motion.section id="home" className="mb-16 pt-20" variants={itemVariants}>
           <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-sky-600 via-pink-600 to-sky-600 bg-clip-text text-transparent">
             Welcome to Floka
           </h1>
@@ -131,5 +137,6 @@ export default function Home() {
         </motion.section>
       </div>
     </motion.div>
+    </>
   );
 }
