@@ -1,6 +1,7 @@
 import Experice from './Experience/Experice';
 import FastMarque from './FastMarque';
 import FunFacts from './FunFacts/FunFacts.jsx/FunFacts';
+import HappyUsers from './HappyUsers/HappyUsers';
 import Hero from './Hero';
 import MoreWorks from './MoreWorks/MoreWorks';
 import Portfolio from './Portfolio/Portfolio';
@@ -17,6 +18,7 @@ export default function Home() {
           <Portfolio />
           <MoreWorks />
           <FunFacts />
+          <HappyUsers />
         </div>
       </div>
     </>
