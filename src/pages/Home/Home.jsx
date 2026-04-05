@@ -5,6 +5,7 @@ import HappyUsers from './HappyUsers/HappyUsers';
 import Hero from './Hero';
 import MoreWorks from './MoreWorks/MoreWorks';
 import Portfolio from './Portfolio/Portfolio';
+import UserFeedbacks from './UserFeedbacks/UserFeedbacks';
 
 export default function Home() {
   return (
@@ -19,6 +20,7 @@ export default function Home() {
           <MoreWorks />
           <FunFacts />
           <HappyUsers />
+          <UserFeedbacks />
         </div>
       </div>
     </>
