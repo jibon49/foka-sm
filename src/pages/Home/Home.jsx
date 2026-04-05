@@ -1,6 +1,8 @@
 import Experice from './Experience/Experice';
 import FastMarque from './FastMarque';
 import FunFacts from './FunFacts/FunFacts.jsx/FunFacts';
+import GetInTouch from './GetInTouch/GetInTouch';
+import GetReward from './GetReward/GetReward';
 import HappyUsers from './HappyUsers/HappyUsers';
 import Hero from './Hero';
 import MoreWorks from './MoreWorks/MoreWorks';
@@ -21,6 +23,8 @@ export default function Home() {
           <FunFacts />
           <HappyUsers />
           <UserFeedbacks />
+          <GetInTouch />
+          <GetReward />
         </div>
       </div>
     </>
