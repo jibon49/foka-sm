@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import gsap from 'gsap';
+import AnimatedIconButton from '../../../components/AnimatedIconButton';
 
 // Hire Us Button Component
 const HireUsButton = () => {
@@ -40,57 +41,13 @@ const HireUsButton = () => {
 
   return (
     <div className="flex justify-center py-8 sm:py-12 lg:py-16">
-      <button
-        onMouseEnter={handleHover}
-        onMouseLeave={handleHoverEnd}
-        className="inline-flex items-center gap-4 sm:gap-6 px-6 sm:px-8 py-3 sm:py-4 rounded-full transition-colors duration-300 group cursor-pointer"
-      >
-        {/* Icon Circle Container */}
-        <div className="relative w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black flex items-center justify-center flex-shrink-0">
-          {/* Plus Icon */}
-          <div
-            ref={plusIconRef}
-            className="absolute w-6 h-6 sm:w-7 sm:h-7 flex items-center justify-center"
-            style={{ opacity: 1, rotation: 0 }}
-          >
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="white"
-              strokeWidth="3"
-              strokeLinecap="round"
-              className="w-full h-full"
-            >
-              <line x1="12" y1="5" x2="12" y2="19" />
-              <line x1="5" y1="12" x2="19" y2="12" />
-            </svg>
-          </div>
-
-          {/* Cross Icon */}
-          <div
-            ref={crossIconRef}
-            className="absolute w-6 h-6 sm:w-7 sm:h-7 flex items-center justify-center"
-            style={{ opacity: 0, rotation: -90 }}
-          >
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="white"
-              strokeWidth="3"
-              strokeLinecap="round"
-              className="w-full h-full"
-            >
-              <line x1="18" y1="6" x2="6" y2="18" />
-              <line x1="6" y1="6" x2="18" y2="18" />
-            </svg>
-          </div>
-        </div>
-
-        {/* Text */}
-        <span className="text-sm sm:text-base font-inter font-bold text-white uppercase tracking-wider">
-          Hire Us today
-        </span>
-      </button>
+      <AnimatedIconButton
+        text="Hire Us"
+        bgColor="bg-black"
+        textColor="text-white"
+        hoverBgColor="hover:bg-black"
+        iconBgColor="bg-black"
+      />
     </div>
   );
 };
