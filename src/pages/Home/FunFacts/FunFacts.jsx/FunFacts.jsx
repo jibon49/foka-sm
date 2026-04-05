@@ -13,7 +13,7 @@ export default function FunFacts() {
   }, []);
 
   return (
-    <section className="w-full py-12 sm:py-20 lg:py-32 bg-white">
+    <section className="w-full py-12 sm:py-20 lg:py-32">
       <div className="max-w-350 mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main Container - Sticky Scroll Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 xl:gap-20 items-start">

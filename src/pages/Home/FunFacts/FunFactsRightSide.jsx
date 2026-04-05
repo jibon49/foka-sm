@@ -78,7 +78,7 @@ export default function FunFactsRightSide() {
           {/* CARD 1 — Stats Card (Top Left) */}
           <div
             ref={statsCardRef}
-            className="bg-gray-100 rounded-2xl p-4 sm:p-6 flex justify-between items-center h-[120px]"
+            className="bg-white rounded-2xl p-4 sm:p-6 flex justify-between items-center h-30"
           >
             {/* Left Content */}
             <div>

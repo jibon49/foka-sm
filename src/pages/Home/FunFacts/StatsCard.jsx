@@ -35,7 +35,7 @@ export default function StatsCard() {
   }, []);
 
   return (
-    <div ref={cardRef} className="flex flex-col gap-3">
+    <div ref={cardRef} className="flex flex-col gap-3 bg-white">
       <p className="text-gray-600 text-sm font-medium">Successful projects completed</p>
       <div className="flex items-baseline gap-2">
         <span className="text-6xl sm:text-7xl font-bold text-gray-900">2k</span>
