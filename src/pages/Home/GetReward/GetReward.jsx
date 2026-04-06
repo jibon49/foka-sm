@@ -290,11 +290,34 @@ const GetReward = () => {
           <div className="my-6 h-px w-full bg-gray-200" />
 
           {/* AWARDS TABLE */}
-          <div className="space-y-0">
+          <motion.div
+            className="space-y-0"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={{
+              hidden: { opacity: 0 },
+              visible: {
+                opacity: 1,
+                transition: {
+                  staggerChildren: 0.1,
+                  delayChildren: 0.1,
+                },
+              },
+            }}
+          >
             {awards.map((award, index) => (
-              <div
+              <motion.div
                 key={index}
                 className="flex items-center justify-between border-b border-gray-200 px-5 py-4 transition-all duration-300 ease-in-out hover:scale-[1.01] hover:bg-white hover:px-10 hover:shadow-md"
+                variants={{
+                  hidden: { opacity: 0, y: 30 },
+                  visible: {
+                    opacity: 1,
+                    y: 0,
+                    transition: { duration: 0.5, ease: 'easeOut' },
+                  },
+                }}
               >
                 <div className="flex-1 text-sm font-semibold text-gray-900 sm:text-base">
                   {award.title}
@@ -305,9 +328,9 @@ const GetReward = () => {
                 <div className="ml-4 w-12 text-right text-sm font-medium text-gray-500 sm:text-base">
                   {award.year}
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

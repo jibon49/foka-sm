@@ -1,3 +1,4 @@
+import OurAvengers from '../OurAvengers/OurAvengers';
 import Experice from './Experience/Experice';
 import FastMarque from './FastMarque';
 import FunFacts from './FunFacts/FunFacts.jsx/FunFacts';
@@ -25,6 +26,7 @@ export default function Home() {
           <UserFeedbacks />
           <GetInTouch />
           <GetReward />
+          <OurAvengers />
         </div>
       </div>
     </>
