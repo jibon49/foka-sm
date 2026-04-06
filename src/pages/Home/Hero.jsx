@@ -96,7 +96,7 @@ export default function Hero() {
                     console.log('Hero video not found, using fallback gradient');
                 }}
             >
-                <source src="../src/assets/hero-video.mp4" type="video/mp4" />
+                <source src="https://floka.casethemes.net/wp-content/uploads/2025/06/home-1-video.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
             </video>
 
@@ -108,7 +108,7 @@ export default function Hero() {
                 {/* Left Content */}
                 <div className="flex flex-col justify-center max-w-2xl text-center lg:text-left">
                     {/* Studio Background Text */}
-                    
+
 
                     {/* Main Heading */}
                     <h1
@@ -163,7 +163,7 @@ export default function Hero() {
                     >
                         <img
                             ref={imageRef}
-                            src="../src/assets/person1.jpg"
+                            src="	https://floka.casethemes.net/wp-content/uploads/2025/06/home-1-img-slide-300x300.jpg"
                             alt="Avatar"
                             className="w-full h-full object-cover transition-transform duration-300"
                         />
