@@ -2,6 +2,7 @@ import OurAvengers from '../OurAvengers/OurAvengers';
 import Experice from './Experience/Experice';
 import Faq from './Faq/Faq';
 import FastMarque from './FastMarque';
+import Footer from './Footer/Footer';
 import FunFacts from './FunFacts/FunFacts.jsx/FunFacts';
 import GetInTouch from './GetInTouch/GetInTouch';
 import GetReward from './GetReward/GetReward';
@@ -33,8 +34,10 @@ export default function Home() {
           <Faq />
           <LineMarquee />
           <Insight />
+          
         </div>
       </div>
+      <Footer />
     </>
   );
 }
