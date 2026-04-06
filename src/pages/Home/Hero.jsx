@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import ParticleSystem from '../../components/ParticleSystem';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -132,10 +133,18 @@ export default function Hero() {
                     {/* Descriptive Text */}
                 </div>
 
+                {/* Right Side Container */}
+                <div className="hidden lg:flex flex-col items-center justify-start absolute right-0 top-0 w-1/3 h-2/3 z-10">
+                    {/* Particle System Container */}
+                    <div className="w-full h-full relative">
+                        <ParticleSystem />
+                    </div>
+                </div>
+
                 {/* Right Floating Card */}
                 <div
                     ref={cardRef}
-                    className="flex absolute bottom-40 sm:bottom-48 lg:bottom-56 right-4 sm:right-6 lg:right-8 items-center gap-3 sm:gap-4 lg:gap-5 bg-white rounded-2xl sm:rounded-3xl p-3 sm:p-4 transition-all duration-300 hover:-translate-y-1 shadow-lg w-fit lg:w-fit"
+                    className="flex absolute bottom-40 sm:bottom-48 lg:bottom-56 right-4 sm:right-6 lg:right-8 items-center gap-3 sm:gap-4 lg:gap-5 bg-white rounded-2xl sm:rounded-3xl p-3 sm:p-4 transition-all duration-300 hover:-translate-y-1 shadow-lg w-fit lg:w-fit z-30"
                     style={{
                         maxWidth: '90vw',
                     }}
