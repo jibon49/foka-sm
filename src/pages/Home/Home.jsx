@@ -1,4 +1,5 @@
 import OurAvengers from '../OurAvengers/OurAvengers';
+import CopyRight from './CopyRight/CopyRight';
 import Experice from './Experience/Experice';
 import Faq from './Faq/Faq';
 import FastMarque from './FastMarque';
@@ -38,6 +39,7 @@ export default function Home() {
         </div>
       </div>
       <Footer />
+      <CopyRight />
     </>
   );
 }
