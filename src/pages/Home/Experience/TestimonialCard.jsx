@@ -5,7 +5,7 @@ export default function TestimonialCard() {
     >
       {/* Person Image (Transparent PNG - Overflows Top) */}
       <img
-        src="../src/assets/person2.png"
+        src="https://floka.casethemes.net/wp-content/uploads/2025/05/home1-author-img1.webp"
         alt="Person"
         className="absolute bottom-0 h-[110%] sm:h-[115%] lg:h-[120%] w-auto object-contain left-0"
       />
