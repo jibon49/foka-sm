@@ -1,5 +1,6 @@
 import OurAvengers from '../OurAvengers/OurAvengers';
 import Experice from './Experience/Experice';
+import Faq from './Faq/Faq';
 import FastMarque from './FastMarque';
 import FunFacts from './FunFacts/FunFacts.jsx/FunFacts';
 import GetInTouch from './GetInTouch/GetInTouch';
@@ -27,6 +28,7 @@ export default function Home() {
           <GetInTouch />
           <GetReward />
           <OurAvengers />
+          <Faq />
         </div>
       </div>
     </>
