@@ -52,9 +52,7 @@ const AnimatedIconButton = ({
       onClick={onClick}
       className={`inline-flex items-center gap-4 sm:gap-6 px-6 sm:px-8 py-3 sm:py-4 rounded-full ${bgColor} ${hoverBgColor} transition-colors duration-300 group cursor-pointer ${className}`}
     >
-      {/* Icon Circle Container */}
       <div className={`relative w-10 h-10 sm:w-12 sm:h-12 rounded-full ${iconBgColor} flex items-center justify-center flex-shrink-0`}>
-        {/* Plus Icon */}
         <div
           ref={plusIconRef}
           className="absolute w-6 h-6 sm:w-7 sm:h-7 flex items-center justify-center"
@@ -73,7 +71,6 @@ const AnimatedIconButton = ({
           </svg>
         </div>
 
-        {/* Cross Icon */}
         <div
           ref={crossIconRef}
           className="absolute w-6 h-6 sm:w-7 sm:h-7 flex items-center justify-center"
@@ -93,7 +90,6 @@ const AnimatedIconButton = ({
         </div>
       </div>
 
-      {/* Text */}
       <span className={`text-sm font-inter font-bold ${textColor} uppercase tracking-wider`}>
         {text}
       </span>

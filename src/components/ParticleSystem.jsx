@@ -19,14 +19,9 @@ const ParticleSystem = () => {
     const width = container.clientWidth || 500;
     const height = container.clientHeight || 500;
 
-    // Scene
     const scene = new THREE.Scene();
-
-    // Camera
     const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
     camera.position.z = 100;
-
-    // Renderer
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     renderer.setSize(width, height);
     renderer.setClearColor(0x000000, 0);
@@ -34,16 +29,12 @@ const ParticleSystem = () => {
     container.appendChild(renderer.domElement);
     rendererRef.current = renderer;
 
-    // Create particles by detecting PNG image shape
     const particles = [];
     const particleCount = 15000;
 
-    // Load and analyze logo PNG image
     const createLogoShapeFromImage = (callback) => {
       const img = new Image();
       img.crossOrigin = "anonymous";
-      
-      // Use imported logo2.png
       img.src = logo2;
       console.log("Loading image from:", img.src);
 
@@ -51,7 +42,6 @@ const ParticleSystem = () => {
         console.log("✓ Image loaded successfully");
         console.log("Image dimensions:", img.width, "x", img.height);
 
-        // Create canvas to read image pixel data
         const canvas = document.createElement("canvas");
         canvas.width = img.width;
         canvas.height = img.height;
@@ -59,40 +49,36 @@ const ParticleSystem = () => {
         ctx.drawImage(img, 0, 0);
 
         const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-        const data = imageData.data; // RGBA pixel array
+        const data = imageData.data;
 
         const shapePoints = [];
-        const samplingRate = 1; // Sample every pixel for better accuracy
-        const alphaThreshold = 30; // Lower threshold to detect more pixels
+        const samplingRate = 1;
+        const alphaThreshold = 30;
 
-        // Scan image and collect all logo pixels
         for (let i = 0; i < data.length; i += 4 * samplingRate) {
-          const alpha = data[i + 3]; // Alpha channel (transparency)
+          const alpha = data[i + 3];
 
-          // If pixel is visible (not transparent), add it to shape
           if (alpha > alphaThreshold) {
             const pixelIndex = i / 4;
             const x = (pixelIndex % canvas.width);
             const y = Math.floor(pixelIndex / canvas.width);
 
             shapePoints.push({
-              x: (x - canvas.width / 2) * 0.6, // Scale and center the shape
+              x: (x - canvas.width / 2) * 0.6,
               y: (y - canvas.height / 2) * 0.6,
             });
           }
         }
 
-        // Apply the mirror reflection of the rotated logo
         const transformedPoints = shapePoints.map(point => ({
-          x: point.x,    // Keep original x (mirror reflection)
-          y: -point.y,   // Vertical flip (180 rotation)
+          x: point.x,
+          y: -point.y,
         }));
 
         console.log(`✓ Detected ${transformedPoints.length} logo points from image`);
         callback(transformedPoints);
       };
 
-      // Fallback if image doesn't load
       img.onerror = () => {
         console.error("✗ Image failed to load:", img.src);
         console.warn("Make sure logo2.png exists in the public folder");
@@ -100,21 +86,16 @@ const ParticleSystem = () => {
       };
     };
 
-    // Initialize particles with detected logo shape
     createLogoShapeFromImage((logoPoints) => {
       for (let i = 0; i < particleCount; i++) {
         let x, y, z;
 
         if (logoPoints.length > 0) {
-          // Use detected logo shape points
           const idx = Math.floor((i / particleCount) * logoPoints.length);
           const point = logoPoints[idx % logoPoints.length];
-          
-          // Add slight random jitter so particles don't overlap exactly
           x = point.x + (Math.random() - 0.5) * 2;
           y = point.y + (Math.random() - 0.5) * 2;
         } else {
-          // Fallback: random distribution
           x = (Math.random() - 0.5) * 80;
           y = (Math.random() - 0.5) * 80;
         }
@@ -136,7 +117,6 @@ const ParticleSystem = () => {
 
       particleDataRef.current = particles;
 
-      // Create geometry
       const geometry = new THREE.BufferGeometry();
       const positions = new Float32Array(particles.length * 3);
 
@@ -148,7 +128,6 @@ const ParticleSystem = () => {
 
       geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
 
-      // Material and points
       const material = new THREE.PointsMaterial({
         color: 0xFFD700,
         size: 0.8,
@@ -162,26 +141,23 @@ const ParticleSystem = () => {
       pointsRef.current = points;
       sceneObjectsRef.current = { geometry, material };
 
-      // Animation loop
       const animate = () => {
         requestAnimationFrame(animate);
 
         if (particleDataRef.current && pointsRef.current) {
           const positions = pointsRef.current.geometry.attributes.position.array;
-          const repelRadius = 55;  // Increased from 35 to affect particles further
-          const repelForce = 2.5;   // Increased from 1.2 for stronger push
-          const returnForce = 0.02; // Decreased from 0.05 to let particles stay away longer
+          const repelRadius = 55;
+          const repelForce = 2.5;
+          const returnForce = 0.02;
           const damping = 0.88;
 
           particleDataRef.current.forEach((p, i) => {
-            // Calculate distance to mouse
             const dx = p.x - mouseRef.current.x;
             const dy = p.y - mouseRef.current.y;
             const dz = p.z - mouseRef.current.z;
             const distSq = dx * dx + dy * dy + dz * dz;
             const distance = Math.sqrt(distSq);
 
-            // Repulsion - increased minimum distance threshold
             if (distance < repelRadius && distance > 0.1) {
               const force = Math.pow(1 - distance / repelRadius, 2) * repelForce;
               p.vx += (dx / distance) * force;
@@ -189,22 +165,18 @@ const ParticleSystem = () => {
               p.vz += (dz / distance) * force;
             }
 
-            // Return to original
             p.vx += (p.originalX - p.x) * returnForce;
             p.vy += (p.originalY - p.y) * returnForce;
             p.vz += (p.originalZ - p.z) * returnForce;
 
-            // Damping
             p.vx *= damping;
             p.vy *= damping;
             p.vz *= damping;
 
-            // Update position
             p.x += p.vx;
             p.y += p.vy;
             p.z += p.vz;
 
-            // Soft bounds
             const boundsForce = 0.08;
             if (Math.abs(p.x - p.originalX) > 60) p.vx -= (p.x - p.originalX) * boundsForce;
             if (Math.abs(p.y - p.originalY) > 60) p.vy -= (p.y - p.originalY) * boundsForce;
@@ -222,7 +194,6 @@ const ParticleSystem = () => {
 
       animate();
 
-      // Mouse tracking
       const onMouseMove = (event) => {
         if (!renderer.domElement) return;
 
@@ -230,7 +201,6 @@ const ParticleSystem = () => {
         const x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
         const y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
 
-        // Convert to 3D space
         const vector = new THREE.Vector3(x, y, 0.5);
         vector.unproject(camera);
 
@@ -244,7 +214,6 @@ const ParticleSystem = () => {
       renderer.domElement.addEventListener('mousemove', onMouseMove);
       listenersRef.current.mousemove = onMouseMove;
 
-      // Handle resize
       const handleResize = () => {
         const newWidth = container.clientWidth || 500;
         const newHeight = container.clientHeight || 500;
@@ -257,11 +226,9 @@ const ParticleSystem = () => {
       listenersRef.current.resize = handleResize;
     });
 
-    // Cleanup
     return () => {
       console.log("Cleaning up ParticleSystem");
-      
-      // Remove event listeners
+
       if (listenersRef.current.mousemove && rendererRef.current?.domElement) {
         rendererRef.current.domElement.removeEventListener('mousemove', listenersRef.current.mousemove);
       }
@@ -269,7 +236,6 @@ const ParticleSystem = () => {
         window.removeEventListener('resize', listenersRef.current.resize);
       }
 
-      // Dispose Three.js resources
       if (sceneObjectsRef.current.geometry) {
         sceneObjectsRef.current.geometry.dispose();
       }
@@ -283,7 +249,6 @@ const ParticleSystem = () => {
         }
       }
 
-      // Clear refs
       pointsRef.current = null;
       particleDataRef.current = [];
       listenersRef.current = { mousemove: null, resize: null };

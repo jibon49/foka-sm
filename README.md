@@ -1,16 +1,68 @@
-# React + Vite
+# ✨ Floka Studio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, interactive portfolio website for creative studios. Built with beautiful animations, smooth interactions, and cutting-edge web technologies.
 
-Currently, two official plugins are available:
+🌐 **[View Live Demo](https://foka-sm.vercel.app/)**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🎨 What's Inside
 
-## React Compiler
+- **Interactive Particle System** - Logo forms via dynamic particle animations with mouse repulsion
+- **Smooth Scroll Animations** - GSAP-powered scroll triggers and pinning effects
+- **Stunning Hero Section** - Video background with floating card and parallax effects
+- **Responsive Design** - Mobile, tablet, and desktop optimized
+- **Custom Cursor** - Smooth animated cursor that reacts to interactive elements
+- **Back-to-Top Button** - Circular progress indicator showing scroll position
+- **Premium Sections** - Experience, Portfolio, FAQ, Footer, and more
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠️ Tech Stack
 
-## Expanding the ESLint configuration
+- **React 19** + React Router v7
+- **Vite** - Lightning fast bundler
+- **GSAP 3** - Professional animations
+- **Framer Motion** - Component animations
+- **Three.js** - 3D particle systems
+- **Tailwind CSS** - Utility-first styling
+- **PostCSS** - CSS processing
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🚀 Getting Started
+
+### Installation
+```bash
+npm install
+```
+
+### Development
+```bash
+npm run dev
+```
+
+Open [http://localhost:5173](http://localhost:5173) to see your site.
+
+### Build
+```bash
+npm run build
+```
+
+## 📁 Project Structure
+
+```
+src/
+├── components/       # Reusable UI components
+├── pages/           # Page components
+├── layouts/         # Layout wrappers
+├── assets/          # Images & logos
+└── utils/           # Helper functions
+```
+
+## ✍️ Key Features
+
+- **ParticleSystem** - Interactive 3D particles forming your logo
+- **Hero** - Dynamic hero section with video and animations
+- **StackTransition** - Pin & reveal animations between sections
+- **ScrollProgress** - Visual scroll indicator
+- **Smooth Scroll** - Anchor navigation with easing
+- **Dark & Light Themes** - Responsive styling
+
+
+
+

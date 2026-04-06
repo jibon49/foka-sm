@@ -18,7 +18,6 @@ import UserFeedbacks from './UserFeedbacks/UserFeedbacks';
 export default function Home() {
   return (
     <>
-      {/* Hero Section */}
       <Hero />
       <div className='w-full mx-auto px-2 sm:px-4 lg:px-6 py-12 sm:py-16 lg:py-20 bg-[#F5F5F5]'>
         <div className='max-w-8xl mx-auto'>

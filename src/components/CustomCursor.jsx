@@ -8,7 +8,6 @@ export default function CustomCursor() {
   const mouseY = useRef(0);
 
   useEffect(() => {
-    // Helper function to safely check if element is interactive
     const isInteractive = (el) => {
       if (!el || !(el instanceof Element)) return false;
       try {
@@ -24,18 +23,15 @@ export default function CustomCursor() {
       }
     };
 
-    // Handle mouse move
     const handleMouseMove = (e) => {
       mouseX.current = e.clientX;
       mouseY.current = e.clientY;
 
-      // Inner dot follows exactly (no delay)
       gsap.set(innerRef.current, {
         x: mouseX.current,
         y: mouseY.current,
       });
 
-      // Outer circle follows with smooth lag effect
       gsap.to(outerRef.current, {
         x: mouseX.current,
         y: mouseY.current,
@@ -45,7 +41,6 @@ export default function CustomCursor() {
       });
     };
 
-    // Handle mouse enter (hover over interactive elements)
     const handleMouseEnter = (e) => {
       if (isInteractive(e.target)) {
         gsap.to(outerRef.current, {
@@ -69,7 +64,6 @@ export default function CustomCursor() {
       }
     };
 
-    // Handle mouse down (click)
     const handleMouseDown = () => {
       gsap.to(outerRef.current, {
         scale: 0.8,
@@ -78,7 +72,6 @@ export default function CustomCursor() {
       });
     };
 
-    // Handle mouse up
     const handleMouseUp = () => {
       gsap.to(outerRef.current, {
         scale: 1,
@@ -87,7 +80,6 @@ export default function CustomCursor() {
       });
     };
 
-    // Add event listeners
     window.addEventListener('mousemove', handleMouseMove);
     document.addEventListener('mouseenter', handleMouseEnter, true);
     document.addEventListener('mouseleave', handleMouseLeave, true);
@@ -105,7 +97,6 @@ export default function CustomCursor() {
 
   return (
     <>
-      {/* Outer Circle */}
       <div
         ref={outerRef}
         className="fixed w-8 h-8 border-2 border-black rounded-full pointer-events-none z-9999 transition-colors duration-300"
@@ -116,7 +107,6 @@ export default function CustomCursor() {
         }}
       />
 
-      {/* Inner Dot */}
       <div
         ref={innerRef}
         className="fixed w-2 h-2 bg-black rounded-full pointer-events-none z-9999"

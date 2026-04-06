@@ -12,14 +12,11 @@ const ScrollProgress = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      // Calculate scroll progress
       const scrollTop = window.scrollY;
       const docHeight = document.documentElement.scrollHeight - window.innerHeight;
       const scrolled = docHeight > 0 ? scrollTop / docHeight : 0;
 
       setScrollProgress(scrolled);
-
-      // Show/hide button after 100px scroll
       setIsVisible(scrollTop > 100);
     };
 
@@ -48,12 +45,10 @@ const ScrollProgress = () => {
       whileTap={{ scale: 0.95 }}
       transition={{ duration: 0.3 }}
     >
-      {/* SVG Circular Progress */}
       <svg
         className="absolute inset-0 w-full h-full"
         viewBox="0 0 64 64"
       >
-        {/* Background circle */}
         <circle
           cx="32"
           cy="32"
@@ -63,7 +58,6 @@ const ScrollProgress = () => {
           strokeWidth="3"
         />
 
-        {/* Progress circle */}
         <circle
           cx="32"
           cy="32"
@@ -82,7 +76,6 @@ const ScrollProgress = () => {
         />
       </svg>
 
-      {/* Arrow Icon */}
       <motion.div
         className="relative z-10 flex items-center justify-center text-white"
         animate={{

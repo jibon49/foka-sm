@@ -28,7 +28,6 @@ export default function Navbar() {
     return (
         <nav className="w-full font-inter sticky top-0 z-50 bg-white border-b border-gray-200 border-t-4 border-t-sky-500">
             <div className="w-full flex items-center justify-between h-20 px-6 sm:px-8 lg:px-12">
-                {/* Logo */}
                 <Link
                     to="/"
                     className="text-xl font-bold text-gray-900 hover:opacity-80 transition-opacity flex items-center gap-2 flex-shrink-0"
@@ -36,7 +35,6 @@ export default function Navbar() {
                     <img src={logo} alt="Floka Logo" className="h-8" />
                 </Link>
 
-                {/* Desktop Navigation */}
                 <div className="hidden md:flex items-center gap-60 absolute left-1/2 transform -translate-x-1/2">
                     {menuItems.map((item) => (
                         <button
@@ -49,7 +47,6 @@ export default function Navbar() {
                     ))}
                 </div>
 
-                {/* Desktop Right Side */}
                 <div className="hidden md:flex items-center gap-40 flex-shrink-0">
                     <a
                         href="mailto:info@floka.com"
@@ -59,27 +56,15 @@ export default function Navbar() {
                     </a>
                     <button className="group w-10 h-10 flex items-center justify-center">
                         <div className="relative w-6 h-6">
-
-                            {/* Top */}
                             <span className="absolute top-0 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-gray-900 rounded-full transition-all duration-300 group-hover:-translate-y-0.5" />
-
-                            {/* Middle Left */}
                             <span className="absolute left-0 top-1/2 -translate-y-1/2 w-1.5 h-1.5 bg-gray-900 rounded-full transition-all duration-300 group-hover:-translate-x-0.5" />
-
-                            {/* Center */}
                             <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-1.5 h-1.5 bg-gray-900 rounded-full" />
-
-                            {/* Middle Right */}
                             <span className="absolute right-0 top-1/2 -translate-y-1/2 w-1.5 h-1.5 bg-gray-900 rounded-full transition-all duration-300 group-hover:translate-x-0.5" />
-
-                            {/* Bottom */}
                             <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-gray-900 rounded-full transition-all duration-300 group-hover:translate-y-0.5" />
-
                         </div>
                     </button>
                 </div>
 
-                {/* Mobile Menu Button */}
                 <button
                     onClick={() => setIsMenuOpen(!isMenuOpen)}
                     className="md:hidden flex flex-col gap-1.5 justify-center items-center w-8 h-8 flex-shrink-0"
@@ -90,12 +75,10 @@ export default function Navbar() {
                 </button>
             </div>
 
-            {/* Mobile Sidebar */}
             <div
                 className={`fixed top-0 right-0 h-screen w-screen bg-white transform transition-transform duration-300 ease-in-out md:hidden z-40 ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'
                     }`}
             >
-                {/* Header with Logo and Close Button */}
                 <div className="flex items-center justify-between p-6 border-b border-gray-200">
                     <Link
                         to="/"
@@ -127,7 +110,6 @@ export default function Navbar() {
                         </svg>
                     </div>
 
-                    {/* Menu Items */}
                     <div className="flex flex-col gap-4">
                         {menuItems.map((item) => (
                             <div key={item.id} className="border-b border-gray-100 pb-4">
@@ -146,7 +128,6 @@ export default function Navbar() {
                                     </button>
                                 </div>
 
-                                {/* Mobile Preview */}
                                 {activePreview === item.id && (
                                     <div className="mt-3 animate-slideDown">
                                         <div className="w-full h-20 bg-gradient-to-br from-sky-100 to-pink-100 rounded flex items-center justify-center text-xs font-medium text-gray-600">
@@ -169,7 +150,6 @@ export default function Navbar() {
                 </div>
             </div>
 
-            {/* Mobile Overlay */}
             {isMenuOpen && (
                 <div
                     className="fixed inset-0 bg-black bg-opacity-50 md:hidden z-30"
